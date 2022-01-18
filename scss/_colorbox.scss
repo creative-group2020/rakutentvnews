@@ -1,0 +1,272 @@
+/*---------------------------------------------------------------------------
+colorbox
+----------------------------------------------------------------------------*/
+*:focus {
+  outline: none;
+}
+
+#colorbox {
+  outline:0;
+}
+
+#colorbox, #cboxOverlay, #cboxWrapper {
+  position:absolute;
+  top:0;
+  left:0;
+  z-index:9999;
+}
+
+#colorbox, #cboxContent, #cboxLoadedContent {
+  box-sizing:content-box;
+  -moz-box-sizing:content-box;
+  -webkit-box-sizing:content-box;
+}
+
+
+#cbox {
+
+  &Wrapper {
+    max-width:none;
+  }
+
+  &Overlay {
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:$ee;
+  }
+
+  &MiddleLeft,
+  &BottomLeft {
+    clear:left;
+  }
+
+  &LoadingOverlay,
+  &LoadingGraphic {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+  }
+
+  &Content {
+    position:relative;
+    background:$w0;
+    margin:15px;
+    padding:0 0 0 0;
+    border-radius:2px;
+    border-radius:4px;
+    //box-shadow: 0 0 6px $cc;
+  }
+
+  &Error {
+    padding:50px;
+    border:1px solid $cc;
+  }
+
+  &LoadedContent {
+    overflow:auto;
+    -webkit-overflow-scrolling: touch;
+    margin-bottom:0;
+    border: none!important;
+  }
+
+  &Title {
+    margin:0;
+    position:absolute;
+    bottom:4px;
+    left:0;
+    text-align:center;
+    width:90%;
+    color:$b5;
+    margin:10px;
+    font-size:12px;
+    display: none!important;
+  }
+
+  &Current {
+    display:none !important;
+  }
+
+  &LoadingOverlay {
+    background:$w0 url(../img/colorbox/loading.gif) no-repeat center center;
+    background-size: 8px*4;
+    //background: none;
+  }
+
+  &Previous, &Next, &Slideshow, &Close {
+    cursor:pointer;
+    border:0;
+    padding:0;
+    margin:0;
+    overflow:visible;
+    width:auto;
+    background:none;
+    &:active {
+      outline:0;
+    }
+  }
+
+  &Slideshow {
+    position:absolute;
+    top:-20px;
+    right:90px;
+    color:$w0;
+  }
+
+  &Previous{
+    display:inline-block;
+    position:absolute;
+    top:50%;
+    left:10px;
+    margin-top:-25px;
+    font-size: 0;
+    @media screen and (min-width: $brake_md+1) {
+      left:-8px*6;
+    }
+    // position:absolute;
+    // top:50%;
+    // left:10px;
+    // margin-top:-25px;
+    // background:url('../img/colorbox/prev.png')
+    // no-repeat top left;
+    // background-size:20px;
+    // width:20px;
+    // height:25px;
+    // text-indent:-9999px;
+    // cursor: pointer;
+    // @media screen and (min-width: $brake_md+1) {
+    //   left:-30px;
+    // }
+    &:hover{
+      //background-position:bottom left;
+      &::before {
+        opacity: .8;
+        transform: translate(-8px,0);
+      }
+    }
+    &::before {
+      text-align: center;
+      cursor: pointer;
+      content: '\f126';
+      font-family: 'rex-icon';
+      position: relative;
+      display: inline-block;
+      color: $w0;
+      font-size: 8px*5;
+      text-shadow: 1px 1px 1px $w0;
+      transition: all .4s;
+    }
+  }
+
+  &Next {
+    display:inline-block;
+    position:absolute;
+    top:50%;
+    right:10px;
+    margin-top:-25px;
+    font-size: 0;
+    @media screen and (min-width: $brake_md+1) {
+      right:-8px*6;
+    }
+    // background:url('../img/colorbox/next.png') no-repeat top right;
+    // background-size:20px;
+    // width:20px;
+    // height:25px;
+    // text-indent:-9999px;
+    // // cursor: pointer;
+    // @media screen and (min-width: $brake_md+1) {
+    //   right:-30px;
+    // }
+    &:hover{
+      //background-position:bottom right;
+      &::before {
+        opacity: .8;
+        transform: translate(8px,0);
+      }
+    }
+    &::before {
+      text-align: center;
+      cursor: pointer;
+      content: '\f127';
+      font-family: 'rex-icon';
+      position: relative;
+      display: inline-block;
+      color: $w0;
+      font-size: 8px*5;
+      text-shadow: 1px 1px 1px $w0;
+      transition: all .4s;
+    }
+  }
+
+  &Close {
+    display:inline-block;
+    position:absolute;
+    top:-4px*3;
+    right:-4px*3;
+    font-size: 0;
+    @media screen and (min-width: $brake_md+1) {
+      top:-8px*3;
+      right:-8px*3;
+    }
+    //background:url('../img/colorbox/close.png') no-repeat top center;
+    //background-size:20px;
+    //width:20px;
+    //height:25px;
+    //text-indent:-9999px;
+    //cursor: pointer;
+    &:hover{
+      //background-position:bottom center;
+      &::before {
+        opacity: .8;
+        transform: rotate(360deg);
+      }
+    }
+    &::before {
+      text-align: center;
+      cursor: pointer;
+      content: '\f1d1';
+      font-family: 'rex-icon';
+      position: relative;
+      display: inline-block;
+      color: $b3;
+      font-size: 8px*3;
+      text-shadow: 1px 1px 1px $w0;
+      transition: all .4s;
+    }
+  }
+
+}
+
+.cbox {
+  &Photo {
+    float:left;
+    margin:auto;
+    border:0;
+    display:block;
+    max-width:none;
+    -ms-interpolation-mode:bicubic;
+  }
+  &Iframe {
+    width:100%;
+    height:100%;
+    display:block;
+    border:0;
+    padding:0;
+    margin:0;
+    background:$w0;
+  }
+}
+
+
+/*---------------------------------------------------------------------------
+colorbox IE
+----------------------------------------------------------------------------*/
+.cboxIE {
+  #cbox {
+    &TopLeft, &TopCenter, &TopRight, &BottomLeft, &BottomCenter, &BottomRight, &MiddleLeft, &MiddleRight {
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF,endColorstr=#00FFFFFF);
+    }
+  }
+}

@@ -1,0 +1,175 @@
+@-webkit-keyframes shiny-btn3 {
+  0% { -webkit-transform: scale(0) rotate(45deg); opacity: 0; }
+  80% { -webkit-transform: scale(0) rotate(45deg); opacity: 0.5; }
+  81% { -webkit-transform: scale(4) rotate(45deg); opacity: 1; }
+  100% { -webkit-transform: scale(50) rotate(45deg); opacity: 0; }
+}
+
+@keyframes scale {
+  to {
+    transform: translate(-50%, -50%) scale(3);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+}
+
+@keyframes fadeInMov {
+    0% {
+        opacity:0;
+        top:-(8px*7);
+    }
+    100% {
+        opacity:1;
+        top: 0;
+    }
+}
+
+@keyframes fadeMovH2 {
+    0% {
+      opacity: 0;
+      transition: all 1s;
+      transform: scale(1.4) translateX(-10px);
+    }  
+    100% {
+      transform: scale(1.0) translateX(0);
+      opacity: 1;
+    }
+}
+
+@keyframes movUp {
+    0% {
+      //transition: all 1s;
+      transform: translateY(50px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+}
+
+@keyframes fadeMovL {
+    0% {
+      opacity: 0;
+      //transition: all 1s;
+      transform: translateX(10px);
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+}
+
+@keyframes sizeScale {
+    0% {
+        width:60%;
+    }
+    100% {
+        width:100%;
+    }
+}
+
+@keyframes noise_anima {
+	from { background-position: 0 0; }
+	to { background-position: 123px 456px; }
+}
+
+@keyframes blur {
+  0% {
+    filter: blur(10px);
+  }
+  100% {
+    filter: blur(0);
+  }
+}
+
+@keyframes show {
+	0% {
+		transform:translate(0,2em);
+		opacity:0;
+		text-shadow:0 0 0 #DDB962;
+	}
+	50% {
+		text-shadow:0 0 0.5em #DDB962;
+	}
+	100% {
+		transform:translate(0,0);
+		opacity:1;
+		text-shadow:none;
+	}
+}
+
+@keyframes sheen {
+  0% {
+    transform: skewY(-45deg) translateX(0);
+  }
+  100% {
+    transform: skewY(-45deg) translateX(12.5em);
+  }
+}
+
+.downdown {
+    -webkit-animation:downdown 3s infinite linear alternate;
+    animation:downdown 3s infinite linear alternate;
+}
+
+@-webkit-keyframes downdown {
+    0% {-webkit-transform:translate(0, 0) rotate(0deg);}
+    50% {-webkit-transform:translate(0, -30px) rotate(0deg);}
+    100% {-webkit-transform:translate(0, 0)rotate(0deg);}
+}
+
+@keyframes downdown {
+    0% {-webkit-transform:translate(0, 0) rotate(0deg);}
+    50% {-webkit-transform:translate(0, -10px) rotate(0deg);}
+    100% {-webkit-transform:translate(0, 0)rotate(0deg);}
+}
+
+
+.fuwafuwa {
+    -webkit-animation:fuwafuwa 3s infinite linear alternate;
+    animation:fuwafuwa 3s infinite linear alternate;
+}
+
+@-webkit-keyframes fuwafuwa {
+    0% {-webkit-transform:translate(0, 0) rotate(-5deg);}
+    50% {-webkit-transform:translate(0, -5px) rotate(0deg);}
+    100% {-webkit-transform:translate(0, 0)rotate(5deg);}
+}
+
+@keyframes fuwafuwa {
+    0% {-webkit-transform:translate(0, 0) rotate(-5deg);}
+    50% {-webkit-transform:translate(0, -5px) rotate(0deg);}
+    100% {-webkit-transform:translate(0, 0)rotate(5deg);}
+}
+
+
+.buruburu {
+    -webkit-animation:buruburu 0.1s infinite linear alternate;
+    animation:buruburu 0.1s infinite linear alternate;
+}
+
+@-webkit-keyframes buruburu {
+    0% {-webkit-transform:translate(0, 0) rotate(-3deg);}
+    50% {-webkit-transform:translate(0, -1px) rotate(0deg);}
+    100% {-webkit-transform:translate(0, 0)rotate(3deg);}
+}
+
+@keyframes buruburu {
+    0% {-webkit-transform:translate(0, 0) rotate(-3deg);}
+    50% {-webkit-transform:translate(0, -1px) rotate(0deg);}
+    100% {-webkit-transform:translate(0, 0)rotate(3deg);}
+}
+
+
+@keyframes ken-burns {
+  0% {transform: scale(1.02) translate3d(0, 0, 0); filter: blur(0);}
+  30% {filter: blur(0);}
+  100% {transform: scale(1.0) translate3d(0, 0, 0); }
+}
