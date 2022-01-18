@@ -273,6 +273,10 @@ $(function () {//削除禁止
     slidesPerView: 2.2,
     spaceBetween: 32,
 		breakpoints: {
+			1024: {
+				slidesPerView: 2.4,
+				spaceBetween: 16,
+			},
 			767: {
 				slidesPerView: 1.2,
 				spaceBetween: 16,

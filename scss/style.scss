@@ -899,7 +899,7 @@ strong {
       z-index: 3;
       transition: all .6s;
       overflow-y: auto;
-      transform: translateY(-1000px);
+      transform: translateY(-1150px);
       @media screen and (min-width: $brake_md+1) {
         position: static;
         height: auto;
@@ -1337,7 +1337,9 @@ strong {
 
   &-entry {
     &-inr {
-
+      @include flexbox();
+      @include flexbox_j_cont(space-between);
+      overflow: visible;
     }
     &-wrap {
       @media screen and (min-width: $brake_sm+1) {
@@ -2657,6 +2659,7 @@ strong {
       display: block;
       box-sizing: border-box;
       padding: 20px 20px 24px;
+      text-align: center;
       @media screen and (min-width: $brake_md+1) {
         padding: 0 0 32px;
       }
@@ -2665,6 +2668,8 @@ strong {
         span {
           display: inline-block;
           position: relative;
+          max-width: 400px;
+          text-align: center;
           img {
             filter: drop-shadow(2px 4px 10px rgba($main_clr, 0.5));
             z-index: 0;
@@ -2753,13 +2758,19 @@ strong {
         border-radius: 6px;
         display: block;
         box-shadow: 2px 2px 6px rgba($main_clr, 0.25);
-        padding: 16px;
         margin-right: 32px;
         background: $base_clr;
         @media screen and (min-width: $brake_md+1) {
           margin-right: 0;
           margin-bottom: 32px;
         }
+
+        a {
+          padding: 16px;
+          display: block;
+          box-sizing: border-box;
+        }
+
         &.rank {
           &-1, &-2, &-3, &-4, &-5 {
             &::after {
@@ -3011,6 +3022,9 @@ strong {
       ul {
         li {
           display: block;
+          max-width: 400px;
+          margin: 0 auto;
+          text-align: center;
           a {
             display: inline-block;
             span {
