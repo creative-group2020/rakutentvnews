@@ -325,6 +325,25 @@ strong {
   &-img {
     &-url, &-rtvid {
       display: none;
+      a {
+        figure {
+          line-height: 1.0;
+          img {
+            display: block;
+          }
+          figcaption {
+            display: block;
+            padding: 0;
+            text-align: right;
+            span {
+              text-decoration: none;
+              display: inline-block;
+              color: #333;
+              font-size: 10px;
+            }
+          }
+        }
+      }
     }
   }
 }

@@ -179,14 +179,32 @@ $(function () {//削除禁止
 		preparaUrl   : function () {
 			this.targetUrl.each(function() {
 				var value = $(this).text();
-				var imgUrl = '<img src="'+value+'">';
+				var splitSpace = value.split(/\s+/);
+				var splitImgId = splitSpace[0];
+				var splitImgCaption = splitSpace[1];
+
+				if(splitImgCaption) {
+					var imgUrl = '<figure><img src="'+splitImgId+'"><figcaption><span>'+splitImgCaption+'</span></figcaption></figure>';
+				} else {
+					var imgUrl = '<img src="'+splitImgId+'">';
+				}
+
 				$(this).html(imgUrl);
 			});
 		},
 		preparaRtvid : function () {
 			this.targetRtvid.each(function() {
 				var value = $(this).text();
-				var imgUrl = '<img src="https://im.akimg.tv.rakuten.co.jp/content/'+value.substr(-3,1) +value.substr(-4,1)+'/'+value.substr(-1,1) +value.substr(-2,1)+'/'+value+'/main.jpg">';
+				var splitSpace = value.split(/\s+/);
+				var splitImgId = splitSpace[0];
+				var splitImgCaption = splitSpace[1];
+
+				if(splitImgCaption) {
+					var imgUrl = '<figure><img src="https://im.akimg.tv.rakuten.co.jp/content/'+splitImgId.substr(-3,1) +splitImgId.substr(-4,1)+'/'+splitImgId.substr(-1,1) +splitImgId.substr(-2,1)+'/'+splitImgId+'/main.jpg"><figcaption><span>'+splitImgCaption+'</span></figcaption></figure>';
+				} else {
+					var imgUrl = '<img src="https://im.akimg.tv.rakuten.co.jp/content/'+splitImgId.substr(-3,1) +splitImgId.substr(-4,1)+'/'+splitImgId.substr(-1,1) +splitImgId.substr(-2,1)+'/'+splitImgId+'/main.jpg">';
+				}
+
 				$(this).html(imgUrl);
 			});
 		}
@@ -302,8 +320,12 @@ $(window).on("load", function() {//削除禁止
 			let jk3UnitTarget = $('.rakutentv-news-jk3-main p').text();
 			let stringArray = jk3UnitTarget.split(',');
 			let jk3UnitHtml = '';
+			var pathname = location.pathname.split("/");
+			var filename = pathname[pathname.length-1];
+			var filename2 = filename.split('.')[0];
+			
 			$.each(stringArray, function(index, val) {
-				jk3UnitHtml += '<div class="rakutentv-news-jk3-main-box"><div class="rakutentv-news-jk3-main-box-img"><a href="https://tv.rakuten.co.jp/content/'+val+'/?scid=wi_tvn_'+val+'_jk3_img" target="_blank" rel="noopener"><img src="https://im.akimg.tv.rakuten.co.jp/content/'+val.substr(-3,1) +val.substr(-4,1)+'/'+val.substr(-1,1) +val.substr(-2,1)+'/'+val+'/jacket_h_l.jpg" width="150" border="0"></a></div><div class="rakutentv-news-jk3-main-box-btn"><a href="https://tv.rakuten.co.jp/content/'+val+'/?scid=wi_tvn_'+val+'_jk3_link" target="_blank" rel="noopener"><span>詳細を見る</span></a></div></div>';
+				jk3UnitHtml += '<div class="rakutentv-news-jk3-main-box"><div class="rakutentv-news-jk3-main-box-img"><a href="https://tv.rakuten.co.jp/content/'+val+'/?scid=wi_tvn_'+filename2+'_jk3_img" target="_blank" rel="noopener"><img src="https://im.akimg.tv.rakuten.co.jp/content/'+val.substr(-3,1) +val.substr(-4,1)+'/'+val.substr(-1,1) +val.substr(-2,1)+'/'+val+'/jacket_h_l.jpg" width="150" border="0"></a></div><div class="rakutentv-news-jk3-main-box-btn"><a href="https://tv.rakuten.co.jp/content/'+val+'/?scid=wi_tvn_'+filename2+'_jk3_link" target="_blank" rel="noopener"><span>詳細を見る</span></a></div></div>';
 			});
 			$('.rakutentv-news-jk3-main p').remove();
 			$('.rakutentv-news-jk3-main').append(jk3UnitHtml);
