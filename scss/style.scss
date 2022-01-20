@@ -3023,6 +3023,59 @@ strong {
         }
       }
     }
+
+    &-manual {
+      //padding: 20px;
+      display: block;
+      overflow: hidden;
+      @media screen and (min-width: $brake_md+1) {
+        //overflow: visible;
+      }
+      &-inr {
+        // @include flexbox();
+        // @include flexbox_j_cont(center);
+      }
+      &-title {
+        padding: 0 24px;
+        @media screen and (min-width: $brake_md+1) {
+          padding: 0 0;
+        }
+        h2 {
+          font-size: 20px;
+          font-weight: bold;
+          line-height: 2.0;
+          border-bottom: 2px solid $main_clr;
+          padding: 32px 0 0 0;
+          margin: 0 0 24px 0;
+          @media screen and (min-width: $brake_md+1) {
+            font-size: 24px;
+          }
+        }
+      }
+      &-data {
+        display: none;
+      }
+      &-list {
+        padding: 0 24px;
+        ol {
+          list-style: disc;
+          padding: 0 4px 0 20px;
+          li {
+            line-height: 1.2;
+            padding: 0 0 16px 0;
+            text-align: justify;
+            word-break: break-all;
+            a {
+              font-size: 14px;
+              &:hover {
+                
+              }
+            }
+          }
+        }
+      }
+    }
+
   }
 
 

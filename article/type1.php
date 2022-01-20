@@ -88,9 +88,7 @@
           </div>
         </div>
 
-        <div class="rakutentv-news-article-main-wysiwyg">
-          <div class="rakutentv-news-article-main-wysiwyg-inr">
-
+            <?php include('./article/relation_manual_text.php') ?>
             <?php include('./article/sample.php') ?>
 
           </div>
