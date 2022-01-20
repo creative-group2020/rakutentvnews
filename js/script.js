@@ -349,12 +349,17 @@ $(window).on("load", function() {//削除禁止
 			var html = '<ol>';
 			
 			$.each(res, function(index, val) {
+				index = index-1;
 				val = $.trim(val);
-				if(index % 2 == 0) {
-					html += ''+val+'</a></li>';
-				} else {
-					html += '<li><a href="'+val+'">';
+
+				if(val != '') {
+					if(index % 2 == 0) {
+						html += '<li><a href="'+val+'">';
+					} else {
+						html += ''+val+'</a></li>';
+					}
 				}
+				
 			});
 			html += '</ol>';
 			

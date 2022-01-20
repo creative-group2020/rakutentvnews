@@ -3036,7 +3036,7 @@ strong {
         // @include flexbox_j_cont(center);
       }
       &-title {
-        padding: 0 24px;
+        padding: 0 0;
         @media screen and (min-width: $brake_md+1) {
           padding: 0 0;
         }
@@ -3056,7 +3056,7 @@ strong {
         display: none;
       }
       &-list {
-        padding: 0 24px;
+        padding: 0 8px;
         ol {
           list-style: disc;
           padding: 0 4px 0 20px;
