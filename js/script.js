@@ -372,6 +372,47 @@ $(window).on("load", function() {//削除禁止
 
 
 	/*-----------------------------------------
+	relationManualImgList
+	-----------------------------------------*/
+	var relationManualImgList = {
+		init: function () {
+			const targerData = $('.rakutentv-news-relation-manual-imglist-data');
+			const appendClass = $('.rakutentv-news-relation-manual-imglist');
+			// 文字列を分解
+			const str = targerData.text();
+			const res = str.split(/\r\n|\r|\n/);
+
+			const resFilter = res.filter(Boolean);
+
+			const sliceResFilter = (array, number) => {
+				const length = Math.ceil(array.length / number)
+				return new Array(length).fill().map((_, i) =>
+					array.slice(i * number, (i + 1) * number)
+				)
+			}
+
+			const resArray = sliceResFilter(resFilter, 3);
+
+			const resArray0 = resArray[0];
+			const resArray1 = resArray[1];
+			const resArray2 = resArray[2];
+			const resArray3 = resArray[3];
+
+			const html = '<ol>'+
+			'<li><a href="'+$.trim(resArray0[1])+'"><img src="'+$.trim(resArray0[0])+'"><span>'+$.trim(resArray0[2])+'</span></a></li>'+
+			'<li><a href="'+$.trim(resArray1[1])+'"><img src="'+$.trim(resArray1[0])+'"><span>'+$.trim(resArray1[2])+'</span></a></li>'+
+			'<li><a href="'+$.trim(resArray2[1])+'"><img src="'+$.trim(resArray2[0])+'"><span>'+$.trim(resArray2[2])+'</span></a></li>'+
+			'<li><a href="'+$.trim(resArray3[1])+'"><img src="'+$.trim(resArray3[0])+'"><span>'+$.trim(resArray3[2])+'</span></a></li>'+
+			'</ol>';
+
+			targerData.remove();
+			appendClass.append(html);
+		}
+	}
+	relationManualImgList.init();
+
+
+	/*-----------------------------------------
 	rankletcolsNone
 	-----------------------------------------*/
 	var rankletcolsNone = {

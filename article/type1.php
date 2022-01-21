@@ -37,6 +37,8 @@
       </div>
     </div>
 
+    <?php include('./article/relation_manual_img.php') ?>
+
     <div class="rakutentv-news-article-img">
       <figure>
         <img src="https://news.tv.rakuten.co.jp/.assets/thumbnail/349200-800wri.jpg" alt="（C）2020「ラストレター」製作委員会">
