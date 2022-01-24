@@ -3074,6 +3074,112 @@ strong {
           }
         }
       }
+
+      &-img {
+        padding: 0 20px 32px;
+        display: block;
+        overflow: hidden;
+        background: #e9eef0;
+        @media screen and (min-width: $brake_md+1) {
+          //overflow: visible;
+        }
+        &-inr {
+          // @include flexbox();
+          // @include flexbox_j_cont(center);
+        }
+        &-title {
+          padding: 0 0;
+          @media screen and (min-width: $brake_md+1) {
+            padding: 0 0;
+          }
+          h2 {
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 2.0;
+            border-bottom: 2px solid $main_clr;
+            padding: 32px 0 0 0;
+            margin: 0 0 0 0;
+            @media screen and (min-width: $brake_md+1) {
+              font-size: 24px;
+            }
+          }
+        }
+
+        &-list {
+          @media screen and (min-width: $brake_md+1) {
+            @include flexbox();
+            @include flexbox_j_cont(space-between);
+            flex-wrap: wrap;
+          }
+          &-box {
+            display: block;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            box-sizing: border-box;
+            border-bottom: 1px solid $main_clr;
+            @media screen and (min-width: $brake_sm+1) {
+              // width: 50%;
+              // &:nth-child(odd){
+              //   border-right: 1px solid $line_clr;
+              // }
+            }
+            @media screen and (min-width: $brake_md+1) {
+              opacity: 1.0;
+              width: 25%;
+              transition: all .5s;
+              &:nth-child(odd){
+                border-right: none;
+              }
+              &:hover {
+                opacity: .8;
+              }
+            }
+            a {
+              @include flexbox();
+              @include flexbox_j_cont(space-between);
+              @media screen and (min-width: $brake_md+1) {
+                display: block;
+              }
+              .rakutentv-news-relation-manual-img-list-box-img {
+                padding: 16px 16px 16px 0;
+                box-sizing: border-box;
+                display: block;
+                //border-right: 1px solid $main_clr;
+                @media screen and (min-width: $brake_xxl+1) {
+                  width: 100%;
+                  box-sizing: border-box;
+                  padding: 0;
+                }
+                &-bg {
+                  img {
+                    width: 120px;
+                    height: 120px;
+                    @media screen and (min-width: $brake_xxl+1) {
+                      width: 100%;
+                    }
+                  }
+                }
+                &-detail {
+                  padding: 16px 0 16px 8px;
+                  width: 100%;
+                  line-height: 1.4;
+                  text-align: justify;
+                  word-break: break-all;
+                  span {
+                    font-size: 12px;
+                    @media screen and (min-width: $brake_md+1) {
+                      font-size: 14px;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+
+      }
+
     }
 
   }

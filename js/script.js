@@ -376,8 +376,8 @@ $(window).on("load", function() {//削除禁止
 	-----------------------------------------*/
 	var relationManualImgList = {
 		init: function () {
-			const targerData = $('.rakutentv-news-relation-manual-imglist-data');
-			const appendClass = $('.rakutentv-news-relation-manual-imglist');
+			const targerData = $('.rakutentv-news-relation-manual-img-list-data');
+			const appendClass = $('.rakutentv-news-relation-manual-img-list');
 			// 文字列を分解
 			const str = targerData.text();
 			const res = str.split(/\r\n|\r|\n/);
@@ -398,12 +398,10 @@ $(window).on("load", function() {//削除禁止
 			const resArray2 = resArray[2];
 			const resArray3 = resArray[3];
 
-			const html = '<ol>'+
-			'<li><a href="'+$.trim(resArray0[1])+'"><img src="'+$.trim(resArray0[0])+'"><span>'+$.trim(resArray0[2])+'</span></a></li>'+
-			'<li><a href="'+$.trim(resArray1[1])+'"><img src="'+$.trim(resArray1[0])+'"><span>'+$.trim(resArray1[2])+'</span></a></li>'+
-			'<li><a href="'+$.trim(resArray2[1])+'"><img src="'+$.trim(resArray2[0])+'"><span>'+$.trim(resArray2[2])+'</span></a></li>'+
-			'<li><a href="'+$.trim(resArray3[1])+'"><img src="'+$.trim(resArray3[0])+'"><span>'+$.trim(resArray3[2])+'</span></a></li>'+
-			'</ol>';
+			const html = '<div class="rakutentv-news-relation-manual-img-list-box"><a href="'+$.trim(resArray0[1])+'"><div class="rakutentv-news-relation-manual-img-list-box-img"><figure><div class="rakutentv-news-relation-manual-img-list-box-img-bg" style="background:url('+$.trim(resArray0[0])+') center no-repeat; background-size:cover;"><img src="https://im.akimg.tv.rakuten.co.jp/img/news/img.png" alt="'+$.trim(resArray0[2])+'"></div></figure></div><div class="rakutentv-news-relation-manual-img-list-box-img-detail"><span>'+$.trim(resArray0[2])+'</span></div></a></div>'+
+			'<div class="rakutentv-news-relation-manual-img-list-box"><a href="'+$.trim(resArray1[1])+'"><div class="rakutentv-news-relation-manual-img-list-box-img"><figure><div class="rakutentv-news-relation-manual-img-list-box-img-bg" style="background:url('+$.trim(resArray1[0])+') center no-repeat; background-size:cover;"><img src="https://im.akimg.tv.rakuten.co.jp/img/news/img.png" alt="'+$.trim(resArray1[2])+'"></div></figure></div><div class="rakutentv-news-relation-manual-img-list-box-img-detail"><span>'+$.trim(resArray1[2])+'</span></div></a></div>'+
+			'<div class="rakutentv-news-relation-manual-img-list-box"><a href="'+$.trim(resArray2[1])+'"><div class="rakutentv-news-relation-manual-img-list-box-img"><figure><div class="rakutentv-news-relation-manual-img-list-box-img-bg" style="background:url('+$.trim(resArray2[0])+') center no-repeat; background-size:cover;"><img src="https://im.akimg.tv.rakuten.co.jp/img/news/img.png" alt="'+$.trim(resArray2[2])+'"></div></figure></div><div class="rakutentv-news-relation-manual-img-list-box-img-detail"><span>'+$.trim(resArray2[2])+'</span></div></a></div>'+
+			'<div class="rakutentv-news-relation-manual-img-list-box"><a href="'+$.trim(resArray3[1])+'"><div class="rakutentv-news-relation-manual-img-list-box-img"><figure><div class="rakutentv-news-relation-manual-img-list-box-img-bg" style="background:url('+$.trim(resArray3[0])+') center no-repeat; background-size:cover;"><img src="https://im.akimg.tv.rakuten.co.jp/img/news/img.png" alt="'+$.trim(resArray3[2])+'"></div></figure></div><div class="rakutentv-news-relation-manual-img-list-box-img-detail"><span>'+$.trim(resArray3[2])+'</span></div></a></div>';
 
 			targerData.remove();
 			appendClass.append(html);
