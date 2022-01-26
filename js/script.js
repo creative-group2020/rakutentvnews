@@ -372,12 +372,51 @@ $(window).on("load", function() {//削除禁止
 
 
 	/*-----------------------------------------
+	relationManualListBlock
+	-----------------------------------------*/
+	var relationManualListBlock = {
+		init: function () {
+			var targerData = $('.rakutentv-news-relation-manual-textblock-data');
+			var appendClass = $('.rakutentv-news-relation-manual-textblock');
+			// 文字列を分解
+			var str = targerData.text();
+			var res = str.split(/\r\n|\r|\n/);
+			
+			// 出力用の要素を作成
+			var html = '<ol>';
+			
+			$.each(res, function(index, val) {
+				val = $.trim(val);
+
+				if(val != '') {
+					if(index % 2 == 0) {
+						html += '<li><a href="'+val+'">';
+					} else {
+						html += ''+val+'</a></li>';
+					}
+				}
+				
+			});
+			html += '</ol>';
+			
+			// HTMLに出力
+			targerData.remove();
+			appendClass.append(html);
+		}
+	}
+	relationManualListBlock.init();
+
+
+	/*-----------------------------------------
 	relationManualImgList
 	-----------------------------------------*/
 	var relationManualImgList = {
 		init: function () {
 			const targerData = $('.rakutentv-news-relation-manual-img-list-data');
 			const appendClass = $('.rakutentv-news-relation-manual-img-list');
+
+			if(targerData.length){
+
 			// 文字列を分解
 			const str = targerData.text();
 			const res = str.split(/\r\n|\r|\n/);
@@ -403,8 +442,10 @@ $(window).on("load", function() {//削除禁止
 			'<div class="rakutentv-news-relation-manual-img-list-box"><a href="'+$.trim(resArray2[1])+'"><div class="rakutentv-news-relation-manual-img-list-box-img"><figure><div class="rakutentv-news-relation-manual-img-list-box-img-bg" style="background-image:url('+$.trim(resArray2[0])+');"><img src="https://im.akimg.tv.rakuten.co.jp/img/news/img.png" alt="'+$.trim(resArray2[2])+'"></div></figure></div><div class="rakutentv-news-relation-manual-img-list-box-img-detail"><span>'+$.trim(resArray2[2])+'</span></div></a></div>'+
 			'<div class="rakutentv-news-relation-manual-img-list-box"><a href="'+$.trim(resArray3[1])+'"><div class="rakutentv-news-relation-manual-img-list-box-img"><figure><div class="rakutentv-news-relation-manual-img-list-box-img-bg" style="background-image:url('+$.trim(resArray3[0])+');"><img src="https://im.akimg.tv.rakuten.co.jp/img/news/img.png" alt="'+$.trim(resArray3[2])+'"></div></figure></div><div class="rakutentv-news-relation-manual-img-list-box-img-detail"><span>'+$.trim(resArray3[2])+'</span></div></a></div>';
 
-			targerData.remove();
-			appendClass.append(html);
+			
+				targerData.remove();
+				appendClass.append(html);
+			}
 		}
 	}
 	relationManualImgList.init();
