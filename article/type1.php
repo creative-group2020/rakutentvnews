@@ -90,6 +90,7 @@
 
             <?php include('./article/relation_manual_textblock.php') ?>
             <?php include('./article/sample.php') ?>
+            <?php include('./article/relation_manual_textblock2.php') ?>
 
           </div>
         </div>

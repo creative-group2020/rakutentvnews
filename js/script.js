@@ -179,7 +179,7 @@ $(function () {//削除禁止
 		preparaUrl   : function () {
 			this.targetUrl.each(function() {
 				var value = $(this).text();
-				var splitSpace = value.split(/\s+/);
+				var splitSpace = value.split(',');
 				var splitImgId = splitSpace[0];
 				var splitImgCaption = splitSpace[1];
 
@@ -195,7 +195,7 @@ $(function () {//削除禁止
 		preparaRtvid : function () {
 			this.targetRtvid.each(function() {
 				var value = $(this).text();
-				var splitSpace = value.split(/\s+/);
+				var splitSpace = value.split(',');
 				var splitImgId = splitSpace[0];
 				var splitImgCaption = splitSpace[1];
 
@@ -210,28 +210,6 @@ $(function () {//削除禁止
 		}
 	}
 	changeImg.init();
-
-
-	// $(window).on("load", function() {
-	// 	let message = $('.rakutentv-news-jk3-main p').text();
-	// 	let stringArray = message.split(',');
-		
-	// 	let messageHtml = '';
-	// 	$.each(stringArray, function(index, val) {
-	// 		messageHtml += '<div class="rakutentv-news-jk3-main-box"><div class="rakutentv-news-jk3-main-box-img"><a href="https://tv.rakuten.co.jp/content/'+val+'/?scid=wi_tvn_s1" target="_blank" rel="noopener"><img src="https://im.akimg.tv.rakuten.co.jp/content/'+val.substr(-3,1) +val.substr(-4,1)+'/'+val.substr(-1,1) +val.substr(-2,1)+'/'+val+'/jacket_h_l.jpg" width="150" border="0"></a></div><div class="rakutentv-news-jk3-main-box-btn"><a href="https://tv.rakuten.co.jp/content/'+val+'/?scid=wi_tvn_210413oomameda" target="_blank" rel="noopener"><span>詳細を見る</span></a></div></div>';
-	// 	});
-		
-	// 	$('.rakutentv-news-jk3-main p').remove();
-	// 	$('.rakutentv-news-jk3-main').append(messageHtml);
-	// });
-	
-	
-	// $(window).on("load", function() {
-	// 	if ( $('#ranklet-11692').is(":contains('無料で人気ランキング表示')") ) {
-	// 		var rankletcols= $("[class^='ranklet-']");
-	// 		rankletcols.css('display', 'none');
-	// 	}
-	// });
 
 
 	//addFixed
@@ -368,7 +346,7 @@ $(window).on("load", function() {//削除禁止
 			appendClass.append(html);
 		}
 	}
-	relationManualList.init();
+	//relationManualList.init();
 
 
 	/*-----------------------------------------
