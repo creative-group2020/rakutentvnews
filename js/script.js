@@ -353,33 +353,41 @@ $(window).on("load", function() {//削除禁止
 	relationManualListBlock
 	-----------------------------------------*/
 	var relationManualListBlock = {
-		init: function () {
-			var targerData = $('.rakutentv-news-relation-manual-textblock-data');
-			var appendClass = $('.rakutentv-news-relation-manual-textblock');
-			// 文字列を分解
-			var str = targerData.text();
-			var res = str.split(/\r\n|\r|\n/);
-			
-			// 出力用の要素を作成
-			var html = '<ol>';
-			
-			$.each(res, function(index, val) {
-				val = $.trim(val);
+		targerData : $('.rakutentv-news-relation-manual-textblock-data'),
+		targetClass: $('.rakutentv-news-relation-manual-textblock'),
+		init       : function() {
 
-				if(val != '') {
-					if(index % 2 == 0) {
-						html += '<li><a href="'+val+'">';
-					} else {
-						html += ''+val+'</a></li>';
-					}
-				}
+			this.targetClass.each(function(i) {
+				//console.log(i + ': ' + $(this).text());
+				appendClass = $(this).attr('id', 'textblock'+i)
+
+				// 文字列を分解
+				str = $(this).text();
+				res = str.split(/\r\n|\r|\n/);
 				
+				// 出力用の要素を作成
+				html = '<ol>';
+				
+				$.each(res, function(index, val) {
+					val = $.trim(val);
+	
+					if(val != '') {
+						if(index % 2 == 0) {
+							html += '<li><a href="'+val+'">';
+						} else {
+							html += ''+val+'</a></li>';
+						}
+					}
+					
+				});
+				html += '</ol>';
+
+				// HTMLに出力
+				appendClass.append(html);
+
 			});
-			html += '</ol>';
 			
-			// HTMLに出力
-			targerData.remove();
-			appendClass.append(html);
+			this.targerData.remove();
 		}
 	}
 	relationManualListBlock.init();
