@@ -398,37 +398,35 @@ $(window).on("load", function() {//削除禁止
 	-----------------------------------------*/
 	var relationManualImgList = {
 		init: function () {
-			const targerData = $('.rakutentv-news-relation-manual-img-list-data');
-			const appendClass = $('.rakutentv-news-relation-manual-img-list');
+			var targerData = $('.rakutentv-news-relation-manual-img-list-data');
+			var appendClass = $('.rakutentv-news-relation-manual-img-list');
 
 			if(targerData.length){
 
-			// 文字列を分解
-			const str = targerData.text();
-			const res = str.split(/\r\n|\r|\n/);
+				// 文字列を分解
+				var str = targerData.text();
+				var res = str.split(/\r\n|\r|\n/);
 
-			const resFilter = res.filter(Boolean);
+				var resFilter = res.filter(Boolean);
 
-			const sliceResFilter = (array, number) => {
-				const length = Math.ceil(array.length / number)
-				return new Array(length).fill().map((_, i) =>
-					array.slice(i * number, (i + 1) * number)
-				)
-			}
+				var sliceResFilter = (array, number) => {
+					var length = Math.ceil(array.length / number)
+					return new Array(length).fill().map((_, i) =>
+						array.slice(i * number, (i + 1) * number)
+					)
+				}
 
-			const resArray = sliceResFilter(resFilter, 3);
+				var resArray = sliceResFilter(resFilter, 3);
+				var resArrayLength = resArray.length-1;
 
-			const resArray0 = resArray[0];
-			const resArray1 = resArray[1];
-			const resArray2 = resArray[2];
-			const resArray3 = resArray[3];
+				console.log(resArrayLength);
 
-			const html = '<div class="rakutentv-news-relation-manual-img-list-box"><a href="'+$.trim(resArray0[1])+'"><div class="rakutentv-news-relation-manual-img-list-box-img"><figure><div class="rakutentv-news-relation-manual-img-list-box-img-bg" style="background-image:url('+$.trim(resArray0[0])+');"><img src="https://im.akimg.tv.rakuten.co.jp/img/news/img.png" alt="'+$.trim(resArray0[2])+'"></div></figure></div><div class="rakutentv-news-relation-manual-img-list-box-img-detail"><span>'+$.trim(resArray0[2])+'</span></div></a></div>'+
-			'<div class="rakutentv-news-relation-manual-img-list-box"><a href="'+$.trim(resArray1[1])+'"><div class="rakutentv-news-relation-manual-img-list-box-img"><figure><div class="rakutentv-news-relation-manual-img-list-box-img-bg" style="background-image:url('+$.trim(resArray1[0])+');"><img src="https://im.akimg.tv.rakuten.co.jp/img/news/img.png" alt="'+$.trim(resArray1[2])+'"></div></figure></div><div class="rakutentv-news-relation-manual-img-list-box-img-detail"><span>'+$.trim(resArray1[2])+'</span></div></a></div>'+
-			'<div class="rakutentv-news-relation-manual-img-list-box"><a href="'+$.trim(resArray2[1])+'"><div class="rakutentv-news-relation-manual-img-list-box-img"><figure><div class="rakutentv-news-relation-manual-img-list-box-img-bg" style="background-image:url('+$.trim(resArray2[0])+');"><img src="https://im.akimg.tv.rakuten.co.jp/img/news/img.png" alt="'+$.trim(resArray2[2])+'"></div></figure></div><div class="rakutentv-news-relation-manual-img-list-box-img-detail"><span>'+$.trim(resArray2[2])+'</span></div></a></div>'+
-			'<div class="rakutentv-news-relation-manual-img-list-box"><a href="'+$.trim(resArray3[1])+'"><div class="rakutentv-news-relation-manual-img-list-box-img"><figure><div class="rakutentv-news-relation-manual-img-list-box-img-bg" style="background-image:url('+$.trim(resArray3[0])+');"><img src="https://im.akimg.tv.rakuten.co.jp/img/news/img.png" alt="'+$.trim(resArray3[2])+'"></div></figure></div><div class="rakutentv-news-relation-manual-img-list-box-img-detail"><span>'+$.trim(resArray3[2])+'</span></div></a></div>';
+				var html = '';
 
-			
+				for (var i=0; i<resArrayLength; i++) {
+					html += '<div class="rakutentv-news-relation-manual-img-list-box"><a href="'+$.trim(resArray[i][1])+'"><div class="rakutentv-news-relation-manual-img-list-box-img"><figure><div class="rakutentv-news-relation-manual-img-list-box-img-bg" style="background-image:url('+$.trim(resArray[i][0])+');"><img src="https://im.akimg.tv.rakuten.co.jp/img/news/img.png" alt="'+$.trim(resArray[i][2])+'"></div></figure></div><div class="rakutentv-news-relation-manual-img-list-box-img-detail"><span>'+$.trim(resArray[i][2])+'</span></div></a></div>';
+				}
+				
 				targerData.remove();
 				appendClass.append(html);
 			}
