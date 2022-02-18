@@ -325,22 +325,21 @@ strong {
   &-img {
     &-url, &-rtvid {
       display: none;
-      a {
-        figure {
-          line-height: 1.0;
-          img {
-            display: block;
-          }
-          figcaption {
-            display: block;
-            padding: 0;
-            text-align: right;
-            span {
-              text-decoration: none;
-              display: inline-block;
-              color: #333;
-              font-size: 10px;
-            }
+      figure {
+        line-height: 1.0;
+        img {
+          display: block;
+        }
+        figcaption {
+          display: block;
+          text-align: right;
+          padding: 2px 8px;
+          span {
+            text-decoration: none;
+            display: inline-block;
+            color: #333;
+            font-size: 10px;
+            line-height: 1.6;
           }
         }
       }
@@ -1357,8 +1356,10 @@ strong {
   &-entry {
     &-inr {
       @include flexbox();
-      @include flexbox_j_cont(space-between);
+      //@include flexbox_j_cont(space-between);
+      @include flexbox_j_cont(center);
       overflow: visible;
+      flex-wrap: wrap;
     }
     &-wrap {
       @media screen and (min-width: $brake_sm+1) {
