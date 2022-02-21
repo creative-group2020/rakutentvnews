@@ -2340,6 +2340,12 @@ strong {
       @include flexbox();
       @include flexbox_j_cont(space-between);
       @include flexbox_align_itm(center);
+      flex-wrap: wrap;
+      &:after {
+        content:"";
+        display: block;
+        width:30%;
+      }
       &-box {
         position: relative;
         width: 31%;
@@ -2390,6 +2396,92 @@ strong {
         }
       }
     }
+
+    &-live {
+      display: block;
+      background: $main_clr;
+      //margin-top: 40px;
+      &-inr {
+        padding: 0 20px 48px;
+      }
+  
+      &-title {
+        h2 {
+          margin-left: 0;
+          font-size: 20px;
+          font-weight: bold;
+          padding: 40px 8px;
+          @media screen and (min-width: $brake_md+1) {
+            font-size: 24px;
+          }
+          span {
+            color: $base_clr;
+          }
+        }
+      }
+  
+      &-main {
+        @include flexbox();
+        @include flexbox_j_cont(space-between);
+        @include flexbox_align_itm(center);
+        flex-wrap: wrap;
+        &:after {
+          content:"";
+          display: block;
+          width:30%;
+        }
+        &-box {
+          position: relative;
+          width: 31%;
+          &-img {
+            width: 100%;
+            margin-bottom: 8px;
+          }
+          &-btn {
+            a {
+              box-sizing: border-box;
+              display: block;
+              padding: 2px 8px 6px;
+              background: $r_clr;
+              text-align: center;
+              border-radius: 2px;
+              @media screen and (min-width: $brake_md+1) {
+                padding: 8px 8px 12px;
+                transition: all .5s;
+              }
+              &:hover {
+                @media screen and (min-width: $brake_md+1) {
+                  background: #ff0000;
+                }
+              }
+              span {
+                padding: 0 4px 0 0;
+                color: $base_clr;
+                font-weight: bold;
+                position: relative;
+                font-size: 12px;
+                @media screen and (min-width: $brake_md+1) {
+                  font-size: 14px;
+                }
+                &::after {
+                  content: "";
+                  display: inline-block;
+                  background: url(../img/arrow_x.svg) center no-repeat;
+                  background-size: 10px;
+                  width: 10px;
+                  height: 10px;
+                  position: absolute;
+                  top: 50%;
+                  right: 0;
+                  margin: -4px -10px 0 0;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
   }
   
 

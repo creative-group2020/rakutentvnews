@@ -313,6 +313,28 @@ $(window).on("load", function() {//削除禁止
 
 
 	/*-----------------------------------------
+	jk3LiveUnit
+	-----------------------------------------*/
+	var jk3LiveUnit = {
+		init: function () {
+			let jk3LiveUnitTarget = $('.rakutentv-news-jk3-live-main p').text();
+			let stringArray = jk3LiveUnitTarget.split(',');
+			let jk3LiveUnitHtml = '';
+			var pathname = location.pathname.split("/");
+			var filename = pathname[pathname.length-1];
+			var filename2 = filename.split('.')[0];
+			
+			$.each(stringArray, function(index, val) {
+				jk3LiveUnitHtml += '<div class="rakutentv-news-jk3-live-main-box"><div class="rakutentv-news-jk3-live-main-box-img"><a href="https://live.tv.rakuten.co.jp/content/'+val+'/?scid=wi_tvn_'+filename2+'_jk3_img" target="_blank" rel="noopener"><img src="https://im.akimg.tv.rakuten.co.jp/content/'+val.substr(-3,1) +val.substr(-4,1)+'/'+val.substr(-1,1) +val.substr(-2,1)+'/'+val+'/jacket_h_l.jpg" width="150" border="0"></a></div><div class="rakutentv-news-jk3-live-main-box-btn"><a href="https://live.tv.rakuten.co.jp/content/'+val+'/?scid=wi_tvn_'+filename2+'_jk3_link" target="_blank" rel="noopener"><span>詳細を見る</span></a></div></div>';
+			});
+			$('.rakutentv-news-jk3-live-main p').remove();
+			$('.rakutentv-news-jk3-live-main').append(jk3LiveUnitHtml);
+		}
+	}
+	jk3LiveUnit.init();
+
+
+	/*-----------------------------------------
 	relationManualList
 	-----------------------------------------*/
 	var relationManualList = {
